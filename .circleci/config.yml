@@ -4,7 +4,7 @@ commands:
   restore_cache_cmd:
     steps:
       - restore_cache:
-          key: nsfminer-{{ .Environment.CACHE_VERSION }}
+          key: eraminer-{{ .Environment.CACHE_VERSION }}
 
 
   save_cache_cmd:
@@ -12,7 +12,7 @@ commands:
       - save_cache:
           paths:
             - ~/.hunter
-          key: nsfminer-{{ .Environment.CACHE_VERSION }}
+          key: eraminer-{{ .Environment.CACHE_VERSION }}
 
   build:
     steps:
