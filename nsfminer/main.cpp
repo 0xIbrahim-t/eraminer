@@ -73,19 +73,11 @@ static void headers(vector<string>& h, bool color) {
 
     auto* bi = nsfminer_get_buildinfo();
     stringstream ss;
-    ss << yellow << "nsfminer " << bi->project_version << " (No stinkin' fees edition)";
+    ss << yellow << "eraminer 1.0.0";
     h.push_back(ss.str());
 
     ss.str("");
-    ss << white << "Copyright 2021 Jean M. Cyr, Licensed under the terms";
-    h.push_back(ss.str());
-
-    ss.str("");
-    ss << white << " of the GNU General Public License Version 3";
-    h.push_back(ss.str());
-
-    ss.str("");
-    ss << white << "https://github.com/no-fee-ethereum-mining/nsfminer";
+    ss << white << "https://github.com/eraworld/eraminer";
     h.push_back(ss.str());
 
     ss.str("");
@@ -381,7 +373,7 @@ class MinerCLI {
                 "One or more Stratum pool or http (getWork) connection as URL(s)\n\n"
                 "scheme://[user[.workername][:password]@]hostname:port[/...]\n\n"
                 "For details and some samples how to fill in this value please use\n"
-                "nsfminer --help-module con\n\n")
+                "eraminer --help-module con\n\n")
 
             ("config,F", value<string>(),
 
@@ -658,12 +650,12 @@ class MinerCLI {
                      << "    Example 1: -P getwork://127.0.0.1:8545\n"
                      << "    Example 2: "
                         "-P "
-                        "stratums://0x012345678901234567890234567890123.miner1@ethermine.org:5555\n"
+                        "stratums://0x012345678901234567890234567890123.miner1@pool.erachain.io:4073\n"
                      << "    Example 3: "
-                        "-P stratum://0x012345678901234567890234567890123.miner1@nanopool.org:9999/"
+                        "-P stratum://0x012345678901234567890234567890123.miner1@pool.erachain.io:4073/"
                         "john.doe%40gmail.com\n"
                      << "    Example 4: "
-                        "-P stratum://0x012345678901234567890234567890123@nanopool.org:9999/miner1/"
+                        "-P stratum://0x012345678901234567890234567890123@pool.erachain.io:4073/miner1/"
                         "john.doe%40gmail.com\n\n"
                      << "    Please note: if your user or worker or password do contain characters\n"
                      << "    which may impair the correct parsing (namely any of . : @ # ?) you "
@@ -672,8 +664,8 @@ class MinerCLI {
                      << "    Also note that backtick has a special meaning in *nix environments "
                         "thus\n"
                      << "    you need to further escape those backticks with backslash.\n\n"
-                     << "    Example : -P stratums://\\`account.121\\`.miner1:x@ethermine.org:5555\n"
-                     << "    Example : -P stratums://account%2e121.miner1:x@ethermine.org:5555\n"
+                     << "    Example : -P stratums://\\`account.121\\`.miner1:x@pool.erachain.io:4073\n"
+                     << "    Example : -P stratums://account%2e121.miner1:x@pool.erachain.io:4073\n"
                      << "    (In Windows backslashes are not needed)\n\n"
                      << "    Common url encoded chars are\n"
                      << "    . (dot)      %2e\n"
@@ -1144,7 +1136,7 @@ int main(int argc, char** argv) {
 
     if (argc < 2) {
         cout << "No arguments specified.";
-        cout << "Try 'nsfminer --help' to get a list of arguments.";
+        cout << "Try 'eraminer --help' to get a list of arguments.";
         return 1;
     }
 
