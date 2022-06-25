@@ -450,7 +450,7 @@ void EthStratumClient::connect_handler(const boost::system::error_code& ec) {
 #endif
                 cwarn << "* Double check hostname in the -P argument.";
                 cwarn << "* Disable certificate verification all-together via environment "
-                         "variable. See nsfminer --help for info about environment variables";
+                         "variable. See eraminer --help for info about environment variables";
                 cwarn << "If you do the latter please be advised you might expose yourself to the "
                          "risk of seeing your shares stolen";
             }
